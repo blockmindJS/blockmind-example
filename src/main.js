@@ -4,7 +4,7 @@ const initializeCustomModel = require("./database/models/custom/customModelSQLit
 
 const botOptions = {
     host: 'mc.masedworld.net',
-    username: 'fsdfsdfsdffsd',
+    username: 'username',
     COMMAND_PREFIX: '@',
     MC_SERVER: 1,
     dbType: 'sqlite',
