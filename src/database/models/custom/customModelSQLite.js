@@ -1,10 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-/**
- * Initializes the CustomModel in SQLite.
- * @param {Sequelize} sequelize - The Sequelize instance.
- * @returns {Model} - The CustomModel.
- */
+
 function initializeCustomModel(sequelize) {
     const CustomModel = sequelize.define('CustomModel', {
         name: {
