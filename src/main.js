@@ -1,46 +1,29 @@
 const { createBot } = require('blockmind');
-const CustomRepository = require('./database/repositories/customRepository');
-const initializeCustomModel = require("./database/models/custom/customModelSQLite");
+const CustomRepository = require("./database/repositories/customRepository");
 
 const botOptions = {
     host: 'mc.masedworld.net',
-    username: 'username',
-    COMMAND_PREFIX: '@',
-    MC_SERVER: 1,
+    username: 'testuser',
     dbType: 'sqlite',
-    version: "1.20.1",
-
+    COMMAND_PREFIX: '@',
     customModels: {
         sqlite: {
-            CustomModel: initializeCustomModel,
+            CustomModel: require('./database/models/custom/customModelSQLite')
         }
     },
     customRepositories: {
-        custom: CustomRepository,
+        custom: CustomRepository
     }
 };
 
-async function createCustomBot(botOptions) {
-    const bot = await createBot(botOptions);
-
-    if (botOptions.customRepositories && botOptions.customRepositories.custom) {
-        const customRepository = new botOptions.customRepositories.custom(botOptions.dbType);
-        await customRepository.initialize();
-        bot.customRepository = customRepository;
-    }
-
-    return bot;
-}
-
-createCustomBot(botOptions).then(async (bot) => {
+createBot(botOptions).then(async (bot) => {
     console.log(`Bot is running with prefix: ${bot.COMMAND_PREFIX}`);
 
-    bot.on('message', async (jsonMsg) => {
-        const message = jsonMsg.toString();
-        console.log(message);
-    });
+    const customRepository = new CustomRepository();
+    await customRepository.initialize();
 
-    const newItem = await bot.customRepository.create({ name: 'testItem', value: 10 });
-    const item = await bot.customRepository.findByName('testItem');
+
+    const newItem = await customRepository.create({ name: 'testItem', value: 10 });
+    const item = await customRepository.findByName('testItem');
     console.log(item);
 });
