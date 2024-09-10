@@ -1,8 +1,7 @@
 const { getModels } = require('blockmind');
 
 class CustomRepository {
-    constructor(dbType) {
-        this.dbType = dbType;
+    constructor() {
         this.model = null;
     }
 
