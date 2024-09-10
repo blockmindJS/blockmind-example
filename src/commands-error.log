@@ -1,0 +1,4 @@
+{"level":"error","message":"Ошибка при начальной загрузке команд: ENOENT: no such file or directory, scandir 'D:\\blockmind-example\\src\\src\\commands'","timestamp":"2024-09-10T09:46:09.861Z"}
+{"level":"error","message":"Ошибка при начальной загрузке команд: ENOENT: no such file or directory, scandir 'D:\\blockmind-example\\src\\src\\commands'","timestamp":"2024-09-10T09:47:55.685Z"}
+{"level":"error","message":"Ошибка: D:\\blockmind-example\\src\\commands\\test.js не является конструктором класса.","timestamp":"2024-09-10T09:53:17.589Z"}
+{"level":"error","message":"Ошибка: D:\\blockmind-example\\src\\commands\\test.js не является конструктором класса.","timestamp":"2024-09-10T09:53:17.600Z"}

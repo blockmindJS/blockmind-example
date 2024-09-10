@@ -1,0 +1,10 @@
+{
+  "name": "blockmind-example",
+  "version": "1.0.0",
+  "dependencies": {
+    "mineflayer": "^4.20.1",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7",
+    "blockmind": "*"
+  }
+}
