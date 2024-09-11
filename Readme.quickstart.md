@@ -1,3 +1,4 @@
+```js
 const { createBot } = require('blockmind');
 const { commandHandler } = require('blockmind');
 
@@ -24,3 +25,5 @@ createBot(botOptions).then(async (bot) => {
     });
 
 });
+
+```
