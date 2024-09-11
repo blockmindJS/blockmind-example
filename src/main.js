@@ -71,4 +71,9 @@ createBot(botOptions).then(async (bot) => {
         console.log('Данные плагина:', pluginData);
     }
 
+    bot.on('message', async (jsonMsg) => {
+        const message = jsonMsg.toString();
+        console.log(message);
+    });
+
 });
