@@ -4,14 +4,12 @@ class TestCommand extends Command {
         super({
             name: 'test',
             argsCount: 0,
-            permissions: 'admin.test',
-            allowedChatTypes: ['global', 'private'],
+            permissions: 'user.say',
+            allowedChatTypes: ['local', 'private'],
         });
     }
 
     async handler(bot, typeChat, user) {
-        console.log(user);
-        console.log(user);
         console.log(user);
         await bot.sendMessage(typeChat, `Команда test выполнена, ${user.username}!`, user.username);
     }

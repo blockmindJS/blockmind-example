@@ -1,10 +1,12 @@
 const { createBot } = require('blockmind');
 const CustomRepository = require("./database/repositories/customRepository");
-const {handleAuthMessage, handleWorldType} = require("./utils/joinStaffHandlers");
+const { commandHandler } = require('blockmind');
+const { Permission } = require('blockmind');
+const { Group } = require('blockmind');
 
 const botOptions = {
-    host: 'mc.masedworld.net',
-    username: 'testuser',
+    host: 'mc.masedworld.net', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
+    username: 'dasdasdsad',
     dbType: 'sqlite',
     COMMAND_PREFIX: '@',
     customModels: {
@@ -14,36 +16,55 @@ const botOptions = {
     },
     customRepositories: {
         custom: CustomRepository
-    }
+    },
+
+    delayConfig: {
+        local: 444,
+        global: 5000,
+        clan: 350,
+        private: 4500
+    },
+
+    plugins: [
+        { type: 'local', path: './plugins/CustomAuthPlugin' }
+    ]
 };
 
 createBot(botOptions).then(async (bot) => {
     console.log(`Bot is running with prefix: ${bot.COMMAND_PREFIX}`);
 
-    const customRepository = new CustomRepository();
-    await customRepository.initialize();
+    // const customRepository = new CustomRepository();
+    // await customRepository.initialize();
 
-    let wasInHub = false;
+    //
+    // const permissionManager = new Permission('sqlite');
+    // await permissionManager.init();
+    // await permissionManager.createPermission('admin.*', 'мяу');
+    //
+    // const groupManager = new Group('sqlite');
+    // const group = new Group('Admin');
+    // await group.init();
+    //
+    // if (!group.groupData) {
+    //     await group.create({ name: 'Admin' });
+    // }
+    //
+    // await group.addPermission('admin.*');
+    // console.log('Текущие права:', group.getPermissions());
+    // await group.removePermission('admin.*');
 
 
-    const newItem = await customRepository.create({ name: 'testItem', value: 10 });
-    const item = await customRepository.findByName('testItem');
-    console.log(item);
-
-    bot.on('spawn', async () => {
-        console.log('Bot spawned.');
-        const worldtype = await handleWorldType(bot);
-        if (worldtype === 'Hub') {
-            global.wasInHub = true;
-            await bot.sendMessage('local', '/surv' + bot.MC_SERVER);
-        } else if (worldtype === 'Survival') {
-            // Бот авторизовался.
-        }
-    });
+    // bot.on('chat', async (username, message) => { // Это пример обработки сообщений для локального сервера
+    //     if (!bot.host === 'localhost') return;
+    //
+    //     await commandHandler(bot, 'local', username, message);
+    // });
 
     bot.on('message', async (jsonMsg) => {
         const message = jsonMsg.toString();
         console.log(message);
-        if (!wasInHub) await handleAuthMessage(bot, message);
     });
+
+
+
 });
