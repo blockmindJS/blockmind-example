@@ -7,7 +7,7 @@ const { Group } = require('blockmind');
 
 const botOptions = {
     host: 'localhost', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
-    username: '',
+    username: 'dasd',
     dbType: 'sqlite',
     version: '1.20.1',
     COMMAND_PREFIX: '@',
@@ -26,6 +26,8 @@ const botOptions = {
         clan: 350,
         private: 4500
     },
+
+    pluginsAutoUpdate: true,
 
     plugins: [
         { type: 'github', repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins', localPath: './plugins/CustomAuthPlugin' }
