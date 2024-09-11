@@ -1,6 +1,8 @@
-Основной репозиторий: https://github.com/mmeerrkkaa/blockmind/tree/main
+The same Readme, but without the extra stuff: https://github.com/mmeerrkkaa/blockmind-example/blob/main/Readme.quickstart.md
 
-Example Репозиторий: https://github.com/mmeerrkkaa/blockmind-example
+Main repository: https://github.com/mmeerrkkaa/blockmind/tree/main
+
+Example Repository: https://github.com/mmeerrkkaa/blockmind-example
 
 
 ```js
@@ -63,7 +65,7 @@ createBot(botOptions).then(async (bot) => {
     // await group.removePermission('admin.*');
 
 
-    bot.on('chat', async (username, message) => { // Это пример обработки сообщений для локального сервера
+    bot.on('chat', async (username, message) => { // This is an example of message handling for a local server
         if (!bot.host === 'localhost') return;
 
         await commandHandler(bot, 'local', username, message);
