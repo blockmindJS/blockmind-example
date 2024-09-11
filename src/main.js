@@ -5,7 +5,7 @@ const { Permission } = require('blockmind');
 const { Group } = require('blockmind');
 
 const botOptions = {
-    host: 'mc.masedworld.net', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
+    host: 'localhost', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
     username: '',
     dbType: 'sqlite',
     version: '1.20.1',
@@ -27,7 +27,7 @@ const botOptions = {
     },
 
     plugins: [
-        { type: 'local', path: './plugins/CustomAuthPlugin' }
+        { type: 'github', repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins', localPath: './plugins/CustomAuthPlugin' }
     ]
 };
 
@@ -55,11 +55,11 @@ createBot(botOptions).then(async (bot) => {
     // await group.removePermission('admin.*');
 
 
-    // bot.on('chat', async (username, message) => { // Это пример обработки сообщений для локального сервера
-    //     if (!bot.host === 'localhost') return;
-    //
-    //     await commandHandler(bot, 'local', username, message);
-    // });
+    bot.on('chat', async (username, message) => { // Это пример обработки сообщений для локального сервера
+        if (!bot.host === 'localhost') return;
+
+        await commandHandler(bot, 'local', username, message);
+    });
     const customAuthPlugin = bot.plugins.find(plugin => plugin.constructor.name === 'CustomAuthPlugin');
     if (customAuthPlugin) {
         const pluginData = customAuthPlugin.wasInHub;
@@ -70,7 +70,5 @@ createBot(botOptions).then(async (bot) => {
         const message = jsonMsg.toString();
         console.log(message);
     });
-
-
 
 });
