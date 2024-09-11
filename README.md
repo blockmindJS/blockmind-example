@@ -1,3 +1,7 @@
+Основной репозиторий: https://github.com/mmeerrkkaa/blockmind/tree/main
+Example Репозиторий: https://github.com/mmeerrkkaa/blockmind-example
+
+
 ```js
 const { createBot } = require('blockmind');
 const CustomRepository = require("./database/repositories/customRepository");
