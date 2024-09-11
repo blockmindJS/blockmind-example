@@ -1,3 +1,4 @@
+```js
 const { createBot } = require('blockmind');
 const CustomRepository = require("./database/repositories/customRepository");
 const { commandHandler } = require('blockmind');
@@ -69,6 +70,7 @@ createBot(botOptions).then(async (bot) => {
     bot.on('message', async (jsonMsg) => {
         const message = jsonMsg.toString();
         console.log(message);
+```
     });
 
 
