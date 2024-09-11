@@ -68,11 +68,6 @@ createBot(botOptions).then(async (bot) => {
 
         await commandHandler(bot, 'local', username, message);
     });
-    const customAuthPlugin = bot.plugins.find(plugin => plugin.constructor.name === 'CustomAuthPlugin');
-    if (customAuthPlugin) {
-        const pluginData = customAuthPlugin.wasInHub;
-        console.log('Данные плагина:', pluginData);
-    }
 
     bot.on('message', async (jsonMsg) => {
         const message = jsonMsg.toString();
