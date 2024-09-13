@@ -1,8 +1,9 @@
-The same Readme, but without the extra stuff: https://github.com/mmeerrkkaa/blockmind-example/blob/main/Readme.quickstart.md
+## Repositories and Examples
 
-Main repository: https://github.com/mmeerrkkaa/blockmind/tree/main
-
-Example Repository: https://github.com/mmeerrkkaa/blockmind-example
+| 🔗 **Main Repositories**                                    | 📘 **Specific Examples**                                                     |
+|-------------------------------------------------------------|------------------------------------------------------------------------------|
+| 🌐 [Main Repository](https://github.com/mmeerrkkaa/blockmind/tree/main) | 🛠 [Create Custom Database Models](https://github.com/blockmindJS/blockmind-example/blob/main/README_Database_Models.md) |
+| 📂 [Example Repository](https://github.com/mmeerrkkaa/blockmind-example) | ⚡ [Quickstart Readme](https://github.com/mmeerrkkaa/blockmind-example/blob/main/Readme.quickstart.md) |
 
 
 ```js
