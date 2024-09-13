@@ -5,12 +5,12 @@ const { Permission } = require('blockmind');
 const { Group } = require('blockmind');
 
 const botOptions = {
-    host: 'mc.masedworld.net', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
+    host: 'localhost',
     username: '',
     dbType: 'sqlite',
+    connect: false,
     version: '1.20.1',
-    password: "123456789",
-    MC_SERVER: 1,
+    password: '',
     COMMAND_PREFIX: '@',
     customModels: {
         sqlite: {
@@ -22,7 +22,7 @@ const botOptions = {
     },
 
     delayConfig: {
-        local: 444,
+        local: 333,
         global: 5000,
         clan: 350,
         private: 4500
@@ -67,21 +67,18 @@ createBot(botOptions).then(async (bot) => {
     // await group.removePermission('admin.*');
 
 
-    // bot.on('chat', async (username, message) => { // Это пример обработки сообщений для локального сервера
-    //     if (!bot.host === 'localhost') return;
-    //
-    //     await commandHandler(bot, 'local', username, message);
-    // });
+    bot.on('chat', async (username, message) => { // This is an example of message handling for a local server
+        if (!bot.host === 'localhost') return;
 
-    const customAuthPlugin = bot.plugins.find(plugin => plugin.constructor.name === 'CustomAuthPlugin');
-    if (customAuthPlugin) {
-        const pluginData = customAuthPlugin.wasInHub;
-        console.log('Данные плагина:', pluginData);
-    }
+        await commandHandler(bot, 'local', username, message);
+    });
 
     bot.on('message', async (jsonMsg) => {
         const message = jsonMsg.toString();
         console.log(message);
     });
+
+
+
 
 });
