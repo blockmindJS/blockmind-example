@@ -13,10 +13,12 @@ const { Permission } = require('blockmind');
 const { Group } = require('blockmind');
 
 const botOptions = {
-    host: 'localhost', // 'mc.masedworld.net', 'mc.mineblaze.net', 'mc.cheatmine.net', 'mc.mineblaze.net'
-    username: 'dasd',
+    host: 'localhost',
+    username: '',
     dbType: 'sqlite',
+    connect: false,
     version: '1.20.1',
+    password: '',
     COMMAND_PREFIX: '@',
     customModels: {
         sqlite: {
@@ -28,7 +30,7 @@ const botOptions = {
     },
 
     delayConfig: {
-        local: 444,
+        local: 333,
         global: 5000,
         clan: 350,
         private: 4500
@@ -37,7 +39,15 @@ const botOptions = {
     pluginsAutoUpdate: true,
 
     plugins: [
-        { type: 'github', repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins', localPath: './plugins/CustomAuthPlugin' }
+        {
+            name: 'AuthPlugin',
+            type: 'github',
+            repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins',
+            localPath: './plugins/CustomAuthPlugin',
+            options: {
+                MC_SERVER: '1',
+            }
+        }
     ]
 };
 
@@ -75,6 +85,9 @@ createBot(botOptions).then(async (bot) => {
         const message = jsonMsg.toString();
         console.log(message);
     });
+
+
+
 
 });
 ```
