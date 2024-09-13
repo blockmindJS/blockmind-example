@@ -39,7 +39,16 @@ const botOptions = {
             options: {
                 MC_SERVER: '1',
             }
+        },
+        {
+            name: "LocalAuthPlugin",
+            type: "local",
+            path: "./plugins/LocalAuthPlugin",
+            options: {
+                MC_SERVER: "1",
+            }
         }
+
     ]
 };
 
