@@ -31,7 +31,15 @@ const botOptions = {
     pluginsAutoUpdate: true,
 
     plugins: [
-        { type: 'github', repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins', localPath: './plugins/CustomAuthPlugin' }
+        {
+            name: 'AuthPlugin',
+            type: 'github',
+            repoUrl: 'https://github.com/mmeerrkkaa/examplePlugins',
+            localPath: './plugins/CustomAuthPlugin',
+            options: {
+                MC_SERVER: '1',
+            }
+        }
     ]
 };
 
