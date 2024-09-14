@@ -17,7 +17,6 @@ const botOptions = {
     host: 'localhost',
     username: '',
     dbType: 'sqlite',
-    connect: false,
     version: '1.20.1',
     password: '',
     COMMAND_PREFIX: '@',
